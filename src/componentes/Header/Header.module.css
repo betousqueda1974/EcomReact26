@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4b183; /* tono durazno */
+  padding: 10px 40px;
+}
+
+.titulo {
+font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #333;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  gap: 40px;
+}
+
+.navbar a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #fff;
+}

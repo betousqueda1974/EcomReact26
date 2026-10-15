@@ -1,45 +1,41 @@
 import { TarjetaProductoList } from "../TarjetaProductoList/TarjetaProductoList";
+import { useState, useEffect } from 'react';
 
-export function TarjetaProductoContainer() {
+export function TarjetaProductoContainer(Mensaje) {
 
-  const productos = [
-    {
+  const [productos, setProductos] = useState([]);
+  const [error, setError] = useState(null);
+  const [cargando, setCargando] = useState(true);
 
-      id: "1",
-      imagen:"../img/producto1.jpg",
-      nombre: "Souvenir1",
-      precio: 14400,
-      stock: 10
-    },
-    {
-      id: "2",
-      imagen:"https://images.unsplash.com/photo-1533158307587-828f0a76ef46?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-      nombre: "Souvenir2",
-      precio: 14500,
-      stock: 15
-    },
-    {
-      id: "3",
-      imagen:"https://media.istockphoto.com/id/2228537204/photo/tourist-choosing-souvenir-fridge-magnet-in-belgium.jpg?s=1024x1024&w=is&k=20&c=0vV_4QS8H58Pjqf5ZATcDMTzihPc6dxFsk6hcU5DsW4=",
-      nombre: "Souvenir3",
-      precio: 22000,
-      stock: 22
-    },
-    {
-      id: "4",
-      imagen:"../img/producto2.jpg",
-      nombre: "Souvenir4",
-      precio: 16800,
-      stock: 40
-    },
-    {
-      id: "5",
-      imagen:"../img/producto1.jpg",
-      nombre: "Souvenir5",
-      precio: 10800,
-      stock: 4
-    }
-  ];
+  useEffect(() => {
+    fetch('/data/productos.json')
+    .then((respuesta) => {
+      if (!respuesta.ok) {
+        throw new Error('No se pudo cargar la información de los productos')
+      }
+      return respuesta.json();
+      })
+
+    .then((datos) => {
+      setProductos(datos)
+    })
+
+    .catch((error) => {
+      setError(error.message)
+    })
+
+    .finally(() => {
+      setCargando(false)
+    });
+  }, []);
+  
+  if (cargando) {
+    return <p>Cargando productos, por favor espere...</p>;
+  }
+  
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <TarjetaProductoList productos={productos}/>

@@ -194,18 +194,3 @@
   color: #333;
   margin: 20px 0;
 }
-
-/* Contenedor de productos */
-.productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px; /* espacio entre tarjetas */
-  margin-top: 20px;
-  transform: rotate(-2deg); /* leve inclinación diagonal */
-}
-
-/* Cada tarjeta se endereza para que no se vea torcida*/
-.productos > * {
-  transform: rotate(2deg);
-}

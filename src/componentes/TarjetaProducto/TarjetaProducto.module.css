@@ -41,6 +41,18 @@
   margin: 4px 0 12px 0;
 }
 
+/*Botones para incrementar o decrementar y valor */
+.cantidad {
+  display: flex;
+  align-items: center;   /* alinea verticalmente en el centro */
+  justify-content: center; /* opcional, centra horizontalmente */
+  gap: 10px;             /* espacio natural entre los elementos */
+}
+
+.cantidad p {
+  margin: 0;             /* quita márgenes extra del <p> */
+}
+
 /* Botón */
 .button {
   margin-top: auto;

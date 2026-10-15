@@ -26,7 +26,7 @@ function TarjetaProducto({imagen, nombre, precio, stock}) {
     	<h3 className={styles.name} >{nombre}</h3>
 			<p className={styles.price}>${precio}</p>
 			<p className={styles.stock}>Stock: {stock}</p>
-			<div>
+			<div className={styles.cantidad}>
 				<button onClick={decrementar}>-</button>
 				<p>{cantidad}</p>
 				<button onClick={incrementar}>+</button>

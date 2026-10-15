@@ -1,0 +1,7 @@
+.productos {
+  display: flex;
+  flex-wrap: wrap;         /* permite que se acomoden en varias filas */
+  justify-content: center; /* centra las tarjetas */
+  gap: 20px;               /* espacio entre tarjetas */
+  margin-top: 20px;
+}

@@ -1,16 +1,5 @@
-function FormularioProducto({datosForm, manejarCambioIngreso, manejarEnvio}) {
-  /*
-  const formStyle = {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "24rem",
-    margin: "3rem auto",
-    padding: "1.5rem",
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    gap: "16px",
-  };
-  */
+function FormularioProducto({datosForm, manejarCambioIngreso, manejarEnvio, manejarCambioImagen}) {
+
   return (
     <form onSubmit={manejarEnvio}>
       <h3>Agregar Nuevo Producto</h3>
@@ -58,6 +47,8 @@ function FormularioProducto({datosForm, manejarCambioIngreso, manejarEnvio}) {
         <label>Imagen:</label>
         <input
           type="file"
+          name="image"
+          onChange={manejarCambioImagen}
         />
       </div>
       

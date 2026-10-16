@@ -1,0 +1,8 @@
+.equipo {
+  display: flex;
+  flex-wrap: wrap;         /* permite que bajen a otra fila si no entran */
+  justify-content: center; /* centra horizontalmente */
+  gap: 20px;               /* espacio entre tarjetas */
+  margin-top: 20px;
+  margin-bottom: 50px;
+}

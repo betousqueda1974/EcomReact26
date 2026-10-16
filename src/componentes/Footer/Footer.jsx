@@ -1,9 +1,11 @@
+import { TarjetaEquipoContainer } from "../Equipo/TarjetaEquipoContainer/TarjetaEquipoContainer";
 import styles from "./Footer.module.css";
 import { FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
     <footer className={styles.footer}>
+      <TarjetaEquipoContainer/>
       <div className={styles.social}>
         <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
           <FaTwitter />

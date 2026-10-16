@@ -1,0 +1,24 @@
+[
+  {
+
+    "id":"1",
+    "imagen":"/img/Integrante1.jpg",
+    "nombre":"Beto Search",
+    "rol":"CEO",
+    "email":"bsearch@betoinc.com"
+  },
+  {
+    "id":"2",
+    "imagen":"/img/Integrante2.jpg",
+    "nombre":"Eugenia Torres",
+    "rol":"Administración",
+    "email": "etorres@betoinc.com"
+  },
+  {
+    "id": "3",
+    "imagen":"/img/Integrante3.jpg",
+    "nombre": "Laura Fernández",
+    "rol": "Contadora",
+    "email": "lfernandez@betoinc.com"
+  }
+]

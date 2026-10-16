@@ -1,0 +1,54 @@
+.formulariocontainer {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  margin: 30px 0;            /* espacio arriba y abajo, más controlado */
+}
+
+.formulario {
+  width: 100%;
+  max-width: 400px;          /* ancho máximo del formulario */
+  background-color: #fff;    /* fondo blanco */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.formulario h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario div {
+  display: flex;             /* coloca label e input en la misma fila */
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.formulario label {
+  flex: 0 0 120px;           /* ancho fijo para los labels */
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.formulario input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.formulario button {
+  width: 100%;
+  padding: 10px;
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: darkorange;
+}

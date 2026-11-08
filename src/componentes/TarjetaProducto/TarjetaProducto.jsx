@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./TarjetaProducto.module.css"
 
-function TarjetaProducto({imagen, nombre, precio, stock}) {
+function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 
 	const [cantidad, setCantidad ] = useState(0);
 
@@ -31,6 +32,7 @@ function TarjetaProducto({imagen, nombre, precio, stock}) {
 				<p>{cantidad}</p>
 				<button onClick={incrementar}>+</button>
 			</div>
+			<Link to={`/productos/${id}`}>Ver Detalle</Link>
       <button className={styles.button} onClick={AgregarCarrito}>Agregar al Carrito</button>
 		</article>
 	);

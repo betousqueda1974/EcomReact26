@@ -1,7 +1,7 @@
 import { TarjetaProductoList } from "../TarjetaProductoList/TarjetaProductoList";
 import { useState, useEffect } from 'react';
 
-export function TarjetaProductoContainer(Mensaje) {
+export function TarjetaProductoContainer() {
 
   const [productos, setProductos] = useState([]);
   const [error, setError] = useState(null);

@@ -2,10 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import FormularioProductoContainer from './componentes/Formulario/FormularioProductoContainer';
 //import {Layout} from './componentes/Layout/Layout';
-import { TarjetaProductoContainer } from './componentes/TarjetaProductoContainer/TarjetaProductoContainer';
+import { TarjetaProductoContainer } from './componentes/Productos/TarjetaProductoContainer/TarjetaProductoContainer';
 import { TarjetaEquipoContainer } from './componentes/Equipo/TarjetaEquipoContainer/TarjetaEquipoContainer';
 import { Layout } from './componentes/Layout/Layout';
-import ProductoDetalle from './componentes/ProductoDetalle/ProductoDetalle';
+import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle';
 
 function App() {
 return (

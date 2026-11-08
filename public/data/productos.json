@@ -2,7 +2,7 @@
   {
 
     "id": "1",
-    "imagen":"../img/producto1.jpg",
+    "imagen":"/img/producto1.jpg",
     "nombre": "Souvenir1",
     "precio": 14400,
     "stock": 10,
@@ -26,7 +26,7 @@
   },
   {
     "id": "4",
-    "imagen":"../img/producto2.jpg",
+    "imagen":"/img/producto2.jpg",
     "nombre": "Souvenir4",
     "precio": 16800,
     "stock": 40,
@@ -34,7 +34,7 @@
   },
   {
     "id": "5",
-    "imagen":"../img/producto1.jpg",
+    "imagen":"/img/producto1.jpg",
     "nombre": "Souvenir5",
     "precio": 10800,
     "stock": 4,

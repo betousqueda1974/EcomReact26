@@ -6,7 +6,7 @@
     "nombre": "Souvenir1",
     "precio": 14400,
     "stock": 10,
-    "Detalles": "Souvenir1 de la mejor calidad"
+    "detalles": "Souvenir1 de la mejor calidad"
   },
   {
     "id": "2",
@@ -14,7 +14,7 @@
     "nombre": "Souvenir2",
     "precio": 14500,
     "stock": 15,
-    "Detalles": "Souvenir2 de la mejor calidad"
+    "detalles": "Souvenir2 de la mejor calidad"
   },
   {
     "id": "3",
@@ -22,7 +22,7 @@
     "nombre": "Souvenir3",
     "precio": 22000,
     "stock": 22,
-    "Detalles": "Souvenir3 de la mejor calidad"
+    "detalles": "Souvenir3 de la mejor calidad"
   },
   {
     "id": "4",
@@ -30,7 +30,7 @@
     "nombre": "Souvenir4",
     "precio": 16800,
     "stock": 40,
-    "Detalles": "Souvenir4 de la mejor calidad"
+    "detalles": "Souvenir4 de la mejor calidad"
   },
   {
     "id": "5",
@@ -38,6 +38,6 @@
     "nombre": "Souvenir5",
     "precio": 10800,
     "stock": 4,
-    "Detalles": "Souvenir5 de la mejor calidad"
+    "detalles": "Souvenir5 de la mejor calidad"
   }
 ]

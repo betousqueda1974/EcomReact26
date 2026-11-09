@@ -1,6 +1,9 @@
 import { TarjetaProductoList } from "../TarjetaProductoList/TarjetaProductoList";
 import { useState, useEffect } from 'react';
 
+import { collection, getDoc, getDocs } from "firebase/firestore";
+import {db} from "../../../firestore/config"
+
 export function TarjetaProductoContainer() {
 
   const [productos, setProductos] = useState([]);
@@ -8,16 +11,15 @@ export function TarjetaProductoContainer() {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('/data/productos.json')
-    .then((respuesta) => {
-      if (!respuesta.ok) {
-        throw new Error('No se pudo cargar la información de los productos')
-      }
-      return respuesta.json();
-      })
+    const productosDB = collection(db, "productos")
 
-    .then((datos) => {
-      setProductos(datos)
+    getDocs(productosDB).then((resp) => {
+      setProductos(
+        resp.docs.map((doc) => {
+          return{...doc.data(), id: doc.id }
+        })
+      )
+      
     })
 
     .catch((error) => {

@@ -48,9 +48,15 @@ export const CartProvider = ({children}) => {
       (total, item) => total + item.cantidad, 0);
   };
 
+  //Obtener el valor total de todo lo que hay en el carrito
   const getCartTotal = () => {
     return cart.reduce(
       (total, item) => total + item.precio * item.cantidad, 0); };
+  
+  //Devuelve la cantidad de items agregados al carrito de un producto en particular
+  const getCantidadActual = (productId) => {
+    const item = cart.find(item => item.id === productId);
+    return item ? item.cantidad : 0;};
 
   return (
     <CartContext.Provider

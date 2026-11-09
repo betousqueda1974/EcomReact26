@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./TarjetaProducto.module.css"
+import { useCart } from "../../../context/CartContext";
 
 function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 
 	const [cantidad, setCantidad ] = useState(0);
+
+	const {addToCart} = useCart();
 
 	const incrementar = () => {
 		if (cantidad < stock)
@@ -16,10 +19,17 @@ function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 			setCantidad(cantidad - 1)
 	}
 
+	/*
 	function AgregarCarrito() {
 		if (cantidad > 0)
     	alert(`Agregaste ${cantidad} unidades de ${nombre}`)
 	}
+		*/
+	
+	const handleAddToCart = () => {
+		addToCart ({id, imagen, nombre, precio, stock}, cantidad)
+		alert(`Agregaste ${cantidad} unidades de ${nombre}`)
+	}	
 
 	return (
 		<article className={styles.card} >
@@ -33,7 +43,7 @@ function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 				<button onClick={incrementar}>+</button>
 			</div>
 			<Link to={`/productos/${id}`}>Ver Detalle</Link>
-      <button className={styles.button} onClick={AgregarCarrito}>Agregar al Carrito</button>
+      <button className={styles.button} onClick={handleAddToCart}>Agregar al Carrito</button>
 		</article>
 	);
 }

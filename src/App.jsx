@@ -6,6 +6,7 @@ import { TarjetaProductoContainer } from './componentes/Productos/TarjetaProduct
 import { TarjetaEquipoContainer } from './componentes/Equipo/TarjetaEquipoContainer/TarjetaEquipoContainer';
 import { Layout } from './componentes/Layout/Layout';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle';
+import Cart from './componentes/Cart/Cart';
 
 function App() {
 return (
@@ -31,6 +32,10 @@ return (
 
       <Route
         path="/productos/:id" element={<ProductoDetalle/>}
+      />
+
+      <Route
+        path="/carrito" element={<Cart/>}
       />
 
       <Route

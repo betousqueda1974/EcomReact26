@@ -28,7 +28,10 @@ function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 	
 	const handleAddToCart = () => {
 		addToCart ({id, imagen, nombre, precio, stock}, cantidad)
-		alert(`Agregaste ${cantidad} unidades de ${nombre}`)
+		if (cantidad > 0) {
+			alert(`Agregaste ${cantidad} unidades de ${nombre}`)
+		}
+
 	}	
 
 	return (

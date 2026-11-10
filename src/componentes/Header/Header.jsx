@@ -1,3 +1,4 @@
+import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { useCart } from "../../context/CartContext";
@@ -15,10 +16,17 @@ function Header() {
       <Link to="/productos">Productos</Link>
       <Link to="/nosotros">Contacto</Link>
 			<Link to="/nuevo">Nuevo Producto</Link>
-			<Link to="/carrito">Carrito {totalProductos > 0 && <span>{totalProductos}</span> } </Link>
+			<Link to="/carrito" className={styles.carritoContainer}>
+				<FaShoppingCart size={24} />
+
+				{totalProductos > 0 && (
+					<span className={styles.badge}>
+						{totalProductos}
+					</span>
+				)}
+			</Link>
     </nav>;
-		
-		</header>
+	</header>
 }
 
 export default Header;

@@ -40,12 +40,13 @@ function TarjetaProducto({id, imagen, nombre, precio, stock}) {
     	<h3 className={styles.name} >{nombre}</h3>
 			<p className={styles.price}>${precio}</p>
 			<p className={styles.stock}>Stock: {stock}</p>
+			<Link className={styles.linkDetalle} to={`/productos/${id}`}>Ver Detalle</Link>
 			<div className={styles.cantidad}>
+				<p>Cantidad: </p>
 				<button onClick={decrementar}>-</button>
 				<p>{cantidad}</p>
 				<button onClick={incrementar}>+</button>
 			</div>
-			<Link to={`/productos/${id}`}>Ver Detalle</Link>
       <button className={styles.button} onClick={handleAddToCart}>Agregar al Carrito</button>
 		</article>
 	);

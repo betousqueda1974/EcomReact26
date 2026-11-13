@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./TarjetaProducto.module.css"
 import { useCart } from "../../../context/CartContext";
+import { toast } from "react-toastify";
 
 function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 
@@ -18,18 +19,11 @@ function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 		if (cantidad > 0)
 			setCantidad(cantidad - 1)
 	}
-
-	/*
-	function AgregarCarrito() {
-		if (cantidad > 0)
-    	alert(`Agregaste ${cantidad} unidades de ${nombre}`)
-	}
-		*/
 	
 	const handleAddToCart = () => {
 		addToCart ({id, imagen, nombre, precio, stock}, cantidad)
 		if (cantidad > 0) {
-			alert(`Agregaste ${cantidad} unidades de ${nombre}`)
+			toast.success(`${cantidad} unidad${cantidad > 1 ? "es" : ""} agregada${cantidad > 1 ? "s" : ""}`);
 		}
 
 	}	
@@ -47,7 +41,7 @@ function TarjetaProducto({id, imagen, nombre, precio, stock}) {
 				<p>{cantidad}</p>
 				<button onClick={incrementar}>+</button>
 			</div>
-      <button className={styles.button} onClick={handleAddToCart}>Agregar al Carrito</button>
+      <button className={styles.button} onClick={handleAddToCart}>Agregar</button>
 		</article>
 	);
 }

@@ -5,7 +5,7 @@ import styles from "./Cart.module.css"
 
 const Cart = () => {
   
-  const {cart, clearCart, getCartTotal } = useCart();
+  const {cart, clearCart, getCartTotal, incrementar, decrementar, removeItem } = useCart();
 
   if (cart.length === 0){
     return (
@@ -27,13 +27,24 @@ const Cart = () => {
           
           <div className={styles.itemInfo}>
             <h4 className={styles.productName}>{item.nombre}</h4>
-            <p className={styles.info}>Cantidad: {item.cantidad}</p>
             <p className={styles.info}>Precio unitario: ${item.precio}</p>
+            <div className={styles.cantidad}>
+              <button className={styles.qtyButton} onClick={() => decrementar(item.id, item.stock)}>
+                -
+              </button>
+              <p>{item.cantidad}</p>
+              <button className={styles.qtyButton} onClick={() => incrementar(item.id, item.stock)}>
+                +
+              </button>
+              <button className={styles.removeButton} onClick={() => removeItem(item.id)}>
+                Remover
+              </button>
+            </div>
             <p className={styles.subtotal}>Subtotal: ${item.precio * item.cantidad}</p>
           </div>
         </div>
       ))}
-      {/* <hr /> */}
+
       <div className={styles.summary}>
         <h3 className={styles.total}>Total a pagar: ${getCartTotal()}</h3>
         <button className={styles.button} onClick={clearCart}>Vaciar Carrito</button>

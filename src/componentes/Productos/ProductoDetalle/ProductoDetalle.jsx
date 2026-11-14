@@ -1,5 +1,7 @@
 import { useState, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../firestore/config';
 
 import styles from "./ProductoDetalle.module.css"
 
@@ -11,16 +13,14 @@ function ProductoDetalle() {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('/data/productos.json')
-    .then((respuesta) => {
-      if (!respuesta.ok) {
-        throw new Error('No se pudo cargar la información de los productos')
-      }
-      return respuesta.json();
-      })
-
-    .then((datos) => {
-      setProductos(datos)
+    const productosDB = collection(db, "productos")
+  
+    getDocs(productosDB).then((resp) => {
+      setProductos(
+        resp.docs.map((doc) => {
+          return{...doc.data(), id: doc.id }
+        })
+      )
     })
 
     .catch((error) => {
@@ -33,7 +33,7 @@ function ProductoDetalle() {
   }, []);
   
   if (cargando) {
-    return <p>Cargando productos, por favor espere...</p>;
+    return <p>Cargando detalle del producto, por favor espere...</p>;
   }
 
   if (error) {
@@ -51,6 +51,7 @@ function ProductoDetalle() {
       <article className={styles.card} >
         <img className={styles.image}  src={productoId.imagen} alt={productoId.nombre} />
         <h3 className={styles.name} >{productoId.nombre}</h3>
+        <h2 className={styles.detalle}>{productoId.detalle}</h2>
         <p className={styles.price}>${productoId.precio}</p>
         <p className={styles.stock}>Stock: {productoId.stock}</p>
         <Link to={`/productos/`}>Regresar</Link>

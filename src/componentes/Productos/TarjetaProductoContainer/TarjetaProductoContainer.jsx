@@ -1,7 +1,7 @@
 import { TarjetaProductoList } from "../TarjetaProductoList/TarjetaProductoList";
 import { useState, useEffect } from 'react';
 
-import { collection, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import {db} from "../../../firestore/config"
 
 export function TarjetaProductoContainer() {

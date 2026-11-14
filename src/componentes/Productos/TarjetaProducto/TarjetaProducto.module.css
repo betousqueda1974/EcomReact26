@@ -2,7 +2,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 220px;
+  width: 240px;
   min-height: 330px;
 
   background: #fff;
@@ -21,6 +21,11 @@
   transform: translateY(-3px);
 }
 
+.imageContainer {
+  position: relative;
+}
+
+
 /* Imagen */
 .image {
   width: 100%;
@@ -31,15 +36,47 @@
   margin-bottom: 12px;
 }
 
+.starButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.9);
+
+  font-size: 0.6rem;
+  cursor: pointer;
+  color: #bdbdbd; /* gris */
+}
+
+.activa {
+  color: gold; /* amarillo */
+}
+
 /* Nombre producto */
 .name {
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #222;
 
-  line-height: 0.6;
-  margin: 0 0 2px;
+  line-height: 1.3;
+  min-height: 2.6em;
+  /* margin: 0 0 2px; */
+
+  display: -webkit-box;
+  display: box;
+
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+
+  overflow: hidden;
 }
 
 /* Precio */
@@ -49,7 +86,7 @@
   font-weight: 700;
   color: #111;
 
-  margin: 8px 0 6px;
+  margin: 1px 0 2px;
 }
 
 /* Stock */

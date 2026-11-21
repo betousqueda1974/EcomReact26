@@ -12,7 +12,7 @@ function Header() {
 		<h1 className={styles.titulo} >Souvenir Mall</h1>
 
 		<nav className={styles.navbar}>
-			<Link to="/">Inicio</Link>
+			<Link to="/inicio">Inicio</Link>
       <Link to="/productos">Productos</Link>
       <Link to="/nosotros">Contacto</Link>
 			<Link to="/nuevo">Nuevo Producto</Link>

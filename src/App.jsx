@@ -14,11 +14,12 @@ return (
       element={<Layout/>}>
 
       <Route
-        path="/" element={ <h1>Inicio</h1> }
+        // path="/" element={ <h1>Inicio</h1> }
+        path="/inicio" element={<TarjetaProductoContainer destacado={true}/>}
       />
 
       <Route
-        path="/productos" element={<TarjetaProductoContainer/>}
+        path="/productos" element={<TarjetaProductoContainer destacado={false}/>}
       />
 
       <Route

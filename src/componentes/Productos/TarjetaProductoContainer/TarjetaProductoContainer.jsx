@@ -1,25 +1,18 @@
 import { TarjetaProductoList } from "../TarjetaProductoList/TarjetaProductoList";
 import { useState, useEffect } from 'react';
+import { readProductos, readProductosDestacados } from "../../../services/productosServices";
 
-import { collection, getDocs } from "firebase/firestore";
-import {db} from "../../../firestore/config"
-
-export function TarjetaProductoContainer() {
+export function TarjetaProductoContainer({destacado}) {
 
   const [productos, setProductos] = useState([]);
   const [error, setError] = useState(null);
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    const productosDB = collection(db, "productos")
+    const promesa = destacado ? readProductosDestacados() : readProductos();
 
-    getDocs(productosDB).then((resp) => {
-      setProductos(
-        resp.docs.map((doc) => {
-          return{...doc.data(), id: doc.id }
-        })
-      )
-      
+    promesa.then((productos) => {
+      setProductos(productos);
     })
 
     .catch((error) => {
@@ -29,7 +22,7 @@ export function TarjetaProductoContainer() {
     .finally(() => {
       setCargando(false)
     });
-  }, []);
+  }, [destacado]);
   
   if (cargando) {
     return <p>Cargando productos, por favor espere...</p>;

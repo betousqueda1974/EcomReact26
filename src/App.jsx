@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import FormularioProductoContainer from './componentes/Formulario/FormularioProductoContainer';
+//import FormularioProductoContainer from './componentes/Formulario/FormularioProductoContainer';
 import { TarjetaProductoContainer } from './componentes/Productos/TarjetaProductoContainer/TarjetaProductoContainer';
 import { TarjetaEquipoContainer } from './componentes/Equipo/TarjetaEquipoContainer/TarjetaEquipoContainer';
 import { Layout } from './componentes/Layout/Layout';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle';
+import Gestion from './componentes/Gestion/gestion';
 import Cart from './componentes/Cart/Cart';
 
 function App() {
@@ -27,7 +28,7 @@ return (
       />
 
       <Route
-        path="/nuevo" element={<FormularioProductoContainer/>}
+        path="/gestion" element={<Gestion/>}
       />
 
       <Route

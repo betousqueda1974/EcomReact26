@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where, doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, getDocs, query, where, doc, getDoc, setDoc, updateDoc, deleteDoc} from "firebase/firestore";
 import {db} from "../firestore/config"
 
 //Conexión a la BD
@@ -42,4 +42,29 @@ export const crearProducto = async (producto) => {
     await setDoc(docRef, datosProducto);
 
     return { ...datosProducto, id: idLimpio };
+};
+
+
+//UPDATE
+export const actualizarProducto = async (producto) => {
+  const { id, ...datosProducto } = producto;
+  
+  if (!id?.trim()) {
+    throw new Error("El ID es obligatorio.");
+  }
+
+  const idLimpio = id.trim();
+  const docRef = doc(db, "productos", idLimpio);
+
+  await updateDoc(docRef, datosProducto);
+
+  return { ...datosProducto, id: idLimpio };
+};
+
+
+//DELETE
+export const eliminarProducto = async (id) => {
+  const docRef = doc(db, "productos", id);
+
+  await deleteDoc(docRef);
 };

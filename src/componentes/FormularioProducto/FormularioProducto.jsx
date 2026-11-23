@@ -77,11 +77,11 @@ function FormularioProducto({
       </div>
 
       <div>
-        <label htmlFor="detalles">Detalles:</label>
+        <label htmlFor="detalle">Detalles:</label>
         <textarea
-            id="detalles"
-            name="detalles"
-            value={datosForm.detalles}
+            id="detalle"
+            name="detalle"
+            value={datosForm.detalle}
             onChange={manejarCambio}
         />
       </div>

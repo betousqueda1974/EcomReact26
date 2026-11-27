@@ -15,7 +15,10 @@ return (
       element={<Layout/>}>
 
       <Route
-        // path="/" element={ <h1>Inicio</h1> }
+        path="/" element={<TarjetaProductoContainer destacado={true}/>}
+      />
+
+      <Route
         path="/inicio" element={<TarjetaProductoContainer destacado={true}/>}
       />
 

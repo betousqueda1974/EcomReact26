@@ -86,7 +86,7 @@ function FormularioProducto({
         />
       </div>
 
-      <div>
+      {/* <div>
         <label htmlFor="destacado">Producto destacado:</label>
         <input
             id="destacado"
@@ -94,6 +94,18 @@ function FormularioProducto({
             name="destacado"
             checked={datosForm.destacado}
             onChange={manejarCambio}
+        />
+      </div>
+ */}
+
+      <div className={styles.checkboxContainer}>
+        <label htmlFor="destacado">Destacado</label>
+        <input
+          id="destacado"
+          type="checkbox"
+          name="destacado"
+          checked={datosForm.destacado}
+          onChange={manejarCambio}
         />
       </div>
 

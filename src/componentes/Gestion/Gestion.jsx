@@ -162,9 +162,6 @@ function Gestion() {
   return (
     // <div className={styles.container}>
     <div>
-      <h2>Gestión de productos</h2>
-      <h2>Nuevo Producto</h2>
-      {/* <p>Productos: {productos.length}</p> */}
 
       <FormularioProducto
         datosForm={datosForm}

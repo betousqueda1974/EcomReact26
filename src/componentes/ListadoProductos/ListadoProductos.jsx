@@ -2,32 +2,57 @@ import styles from "./ListadoProductos.module.css";
 
 function ListadoProductos({ productos, onEditar, onEliminar }) {
 
-    if (productos.length === 0) {
-        return <p>No hay productos cargados.</p>;
-    }
+  if (productos.length === 0) {
+    return <p>No hay productos cargados.</p>;
+  }
 
-    return (
-		  <ul className={styles.lista}>
-		    {productos.map((producto) => (
-		      <li key={producto.id} className={styles.item}>
-		        <span>{producto.nombre}</span>
-		        <span>{producto.detalles}</span>
-		        <span>${producto.precio}</span>
-		        <span>Stock: {producto.stock}</span>
-		        <span>Destacado: {producto.destacado ? "Sí" : "No"}</span>
-            <button type="button" onClick={() => onEditar(producto)}>
-              Editar
-            </button>
-            {/* <button type="button" className={styles.eliminar} onClick={() => onEliminar(producto.id)}>
-              Eliminar
-            </button> */}
-            <button type="button" onClick={() => onEliminar(producto.id)}>
-              Eliminar
-            </button>
-		      </li>
-		    ))}
-		  </ul>
-		);
+  return (
+    <table className={styles.tabla}>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Detalle</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Destacado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {productos.map((producto) => (
+          <tr key={producto.id}>
+            <td>{producto.nombre}</td>
+            {/* <td>{producto.detalles}</td> */}
+            <td>
+              {producto.detalle.length > 50
+                ? producto.detalle.substring(0, 50) + "..."
+                : producto.detalle}
+            </td>
+            <td>${producto.precio}</td>
+            <td>{producto.stock}</td>
+            <td>{producto.destacado ? "Sí" : "No"}</td>
+
+            <td className={styles.acciones}>
+              <button
+                type="button"
+                onClick={() => onEditar(producto)}
+              >
+                Editar
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onEliminar(producto.id)}
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
 export default ListadoProductos;

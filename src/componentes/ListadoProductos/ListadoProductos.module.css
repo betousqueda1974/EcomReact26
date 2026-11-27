@@ -1,15 +1,51 @@
-.lista {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    gap: 0.5rem;
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+
+  background-color: white;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.item {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+.tabla thead {
+  background-color: #d98c5f;
+  color: white;
+}
+
+.tabla th {
+  padding: 1rem;
+  text-align: left;
+}
+
+.tabla td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla tbody tr:hover {
+  background-color: #faf5f2;
+}
+
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.acciones button {
+  background-color: #d98c5f;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 0.4rem 0.8rem;
+
+  cursor: pointer;
+}
+
+.acciones button:hover {
+  background-color: #c77648;
 }

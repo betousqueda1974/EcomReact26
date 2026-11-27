@@ -1,0 +1,76 @@
+.formulario {
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1rem;
+
+  background-color: #fff;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formulario h3 {
+  margin: 0 0 1rem;
+  color: #d98c5f;
+  text-align: center;
+}
+
+/* cada fila */
+.formulario div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* labels */
+.formulario label {
+  width: 130px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  flex-shrink: 0;
+}
+
+/* inputs */
+.formulario input[type="text"],
+.formulario input[type="number"] {
+  flex: 1;
+  padding: 0.25rem 0.4rem;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  font-size: 0.9rem;
+}
+
+/* habilitado */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.checkboxContainer label {
+  width: 130px;
+}
+
+.formulario button {
+  background-color: #d98c5f;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 0.5rem;
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.formulario button:hover {
+  background-color: #c77648;
+}

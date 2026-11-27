@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { readProductos, crearProducto, actualizarProducto, eliminarProducto } from "../../services/productosServices";
 import ListadoProductos from "../ListadoProductos/ListadoProductos";
 import FormularioProducto from "../FormularioProducto/FormularioProducto";
-// import styles from "./Gestion.module.css";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const estadoInicialForm = {
     id: "",
@@ -67,10 +68,18 @@ function Gestion() {
 
   const manejarEliminar = async (id) => {
 
-    const confirmar = window.confirm(
-    "¿Desea eliminar este producto? Esta acción no se puede deshacer.");
+    const resultado = await Swal.fire({
+      title: "¿Elimina el producto?",
+      text: "Esta acción no se puede deshacer.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d98c5f",
+      cancelButtonColor: "#6c757d",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    });
 
-    if (!confirmar) {
+    if (!resultado.isConfirmed) {
       return;
     }
 
@@ -84,11 +93,11 @@ function Gestion() {
         setProductoAEditar(null);
       }
 
-      alert("Producto eliminado correctamente.");
+      toast.success("Producto eliminado correctamente.");
 
     } catch (error) {
       console.error(error);
-      alert("No se pudo eliminar el producto.");
+      toast.error("No se pudo eliminar el producto.");
     }
   };
 
@@ -116,7 +125,8 @@ function Gestion() {
       !Number.isInteger(producto.stock) ||
       producto.stock < 0
     ) {
-      alert("Verifique los datos ingresados.");
+      //alert("Verifique los datos ingresados.");
+      toast.warning("Revise los datos ingresados antes de continuar.");
       return;
     }
 
@@ -132,35 +142,33 @@ function Gestion() {
         );
 
         setProductoAEditar(null);
-
-        alert("Producto actualizado correctamente.");
+        toast.success(`El producto "${actualizado.nombre}" fue actualizado correctamente.`);
 
       } else {
 
         const creado = await crearProducto(producto);
 
         if (!creado) {
-          alert("Ya existe un producto con ese ID.");
+          toast.error(`Ya existe un producto con el ID "${producto.id}".`);
           return;
         }
 
         setProductos((prev) => [...prev, creado]);
 
-        alert("Producto creado correctamente.");
+        toast.success(`El producto "${creado.nombre}" fue creado correctamente`);
     }
 
     setDatosForm(estadoInicialForm);
 
     } catch (error) {
       console.error(error);
-      alert("No se pudo crear el producto.");
+      toast.error("No se pudo crear el producto.");
     }
   };
 
   const modoEdicion = Boolean(productoAEditar);
 
   return (
-    // <div className={styles.container}>
     <div>
 
       <FormularioProducto

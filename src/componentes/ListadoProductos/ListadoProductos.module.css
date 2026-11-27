@@ -16,12 +16,12 @@
 }
 
 .tabla th {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   text-align: left;
 }
 
 .tabla td {
-  padding: 1rem;
+   padding: 0.4rem 1rem;
   border-bottom: 1px solid #eee;
 }
 

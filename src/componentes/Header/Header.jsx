@@ -16,6 +16,7 @@ function Header() {
       <Link to="/productos">Productos</Link>
       <Link to="/nosotros">Contacto</Link>
 			<Link to="/gestion">Administración</Link>
+			<Link to="/gestioncupones">Cupones</Link>
 			<Link to="/carrito" className={styles.carritoContainer}>
 				<FaShoppingCart size={24} />
 

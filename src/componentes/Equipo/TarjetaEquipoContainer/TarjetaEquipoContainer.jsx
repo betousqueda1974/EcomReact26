@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { TarjetaEquipoList } from '../TarjetaEquipoList/TarjetaEquipoList.jsx';
+import { readEquipo } from '../../../services/equipoServices.js';
 
 export function TarjetaEquipoContainer() {
 
@@ -8,25 +9,13 @@ export function TarjetaEquipoContainer() {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('/data/equipo.json')
-    .then((respuesta) => {
-      if (!respuesta.ok) {
-        throw new Error('No se pudo cargar la información del equipo de trabajo')
-      }
-      return respuesta.json();
-      })
+  
+    readEquipo()
+      .then((datos) => {setEquipo(datos);})
 
-    .then((datos) => {
-      setEquipo(datos)
-    })
+      .catch((error) => {setError(error.message)})
 
-    .catch((error) => {
-      setError(error.message)
-    })
-
-    .finally(() => {
-      setCargando(false)
-    });
+      .finally(() => {setCargando(false)});
   }, []);
   
   if (cargando) {

@@ -4,14 +4,14 @@ import { db } from "../firestore/config";
 //Conexión a la BD
 const cuponesDB = collection(db, "cupones")
 
-//Obtener productos
+//Obtener cupones
 export const readCupones = async () => {
   const resp = await getDocs(cuponesDB);
 
   return resp.docs.map((doc) => ({...doc.data(), id: doc.id,}));
 };
 
-//Crear productos
+//Crear cupones
 export const crearCupones = async (cupones) => {
     const { id, ...datosCupones } = cupones;
 
